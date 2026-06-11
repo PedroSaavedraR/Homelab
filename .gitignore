@@ -1,0 +1,5 @@
+.env
+
+# Ignorar datos persistentes del contenedor
+nextcloud_data/
+grafana_data/

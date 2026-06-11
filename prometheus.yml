@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s #Time between each read
+
+scrape_configs:
+  - job_name: 'debian-pedro'
+    static_configs:
+      - targets: ['node-exporter:9100'] # Container reading hardware
