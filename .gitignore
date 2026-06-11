@@ -1,5 +1,11 @@
 .env
+*.log
+.DS_Store
 
-# Ignorar datos persistentes del contenedor
+# Ignorar datos del contenedor
 nextcloud_data/
 grafana_data/
+prometheus_data/
+
+# VPN config
+wireguard_config/

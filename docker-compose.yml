@@ -78,3 +78,33 @@ services:
     environment:
       GF_SECURITY_ADMIN_USER: ${GF_SECURITY_ADMIN_USER}
       GF_SECURITY_ADMIN_PASSWORD: ${GF_SECURITY_ADMIN_PASSWORD}
+
+  # Set-up for connection via VPN
+  vpn-wireguard:
+    image: lscr.io/linuxserver/wireguard:latest
+    container_name: lab-wireguard
+    privileged: true
+    restart: always
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      PUID: 1000
+      PGID: 1000
+      TZ: Europe/Berlin
+      SERVERMODE: server
+      SERVERURL: ${WG_SERVERURL}
+      SERVERPORT: 51820
+      PEERS: 2
+      PEERDNS: auto
+      ALLOWEDIPS: 0.0.0.0/0
+      INTERNAL_SUBNET: 10.13.13.0
+      UI_PASSWORD: ${WG_PASSWORD_QR} # Contraseña para ver los códigos QR en web
+    volumes:
+      - ./wireguard_config:/config
+      - /lib/modules:/lib/modules:ro
+    ports:
+      - "51820:51820/udp" # VPN Port
+      - "51821:51821/tcp" # Web Interface for QR codes
+    networks:
+      - net-frontend

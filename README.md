@@ -23,6 +23,11 @@ The environment is completely contanerized with Docker Compose and segmented int
 
 ---
 
+## System Architectureç
+![Homelab Architecture](./docs/homelab_architecture.png)
+
+---
+
 ## Deployment Instructions
 
 ### Prerequisites
