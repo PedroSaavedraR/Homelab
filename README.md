@@ -23,8 +23,10 @@ The environment is completely contanerized with Docker Compose and segmented int
 
 ---
 
-## System Architectureç
-![Homelab Architecture](./docs/homelab_architecture.png)
+## Diagram
+<p align="center">
+  <img width="711" height="1021" alt="Homelab Architecture Diagram" src="https://github.com/user-attachments/assets/03970173-cdc3-4466-985e-aaa9fad48f03" />
+</p>
 
 ---
 
@@ -41,8 +43,8 @@ git clone [https://github.com/PedroSaavedraR/Homelab.git](https://github.com/Ped
 cd Homelab
 cp .env.example .env
 ```
-Note: Edit the (`.env`) file with your own passwords
-"""
+> [!NOTE]
+> Edit the (`.env`) file with your own passwords
 
 ### Step 2: Assign permissions to the Grafana volume
 For security reasons, the Grafana container runs under an unprivileged user (UID 472). It is necessary to grant ownership of the local persistence folder:
@@ -62,5 +64,6 @@ docker compose up -d
 | **Nextcloud** | `http://localhost:8080`
 | **Grafana** | `http://localhost:3000`
 
-Note: To view system metrics immediately, log into Grafana with the credentials configured in your .env file, navigate to Dashboards -> Import, enter ID 1860 (Node Exporter Full), and bind it to the internal Prometheus data source.
-"""
+> [!NOTE]
+> To view system metrics immediately, log into Grafana with the credentials configured in your .env file, navigate to Dashboards -> Import, enter ID 1860 (Node Exporter Full), and bind it to the internal Prometheus data source.
+
